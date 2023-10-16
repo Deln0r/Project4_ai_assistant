@@ -7,8 +7,8 @@ from gtts import gTTS
 import openai
 import uuid
 
-api_key = "YOUR API HERE"
-lang = 'en'
+api_key = "PUT YOUR API HERE"
+lang = 'en'    ### Your language
 
 openai.api_key = api_key
 
@@ -27,8 +27,8 @@ while True:
                 global guy
                 guy = said
 
-                if "alexa" in said:
-                    new_string = said.replace("alexa", "")
+                if "alexa" in said:     ### Give assistant a different name here
+                    new_string = said.replace("alexa", "")    ### And here
                     new_string = new_string.strip()
                     print(new_string)
                     completion = openai.ChatCompletion.create(model="gpt-3.5-turbo", messages=[{"role": "user", "content": new_string}])
